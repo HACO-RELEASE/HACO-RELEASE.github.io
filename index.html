@@ -111,7 +111,7 @@
     <div class="hero-body">
       <img src="./static/images/contho_overview.png" height="150%">
       <h2 class="subtitle has-text-centered">
-        <span class="dnerf">CONTHO</span> reconstructs 3D human and object by exploiting human-object contact.
+        <span class="dnerf">HACO</span> is a framework for dense hand contact estimation that addresses class and spatial imbalance challenges in training on large-scale datasets..
       </h2>
     </div>
   </div>
@@ -126,40 +126,22 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Human-object contact serves as a strong cue to understand how humans physically interact with objects. 
-            Nevertheless, it is not widely explored to utilize human-object
-            contact information for the joint reconstruction of 3D
-            human and object from a single image. In this work,
-            we present a novel joint 3D human-object reconstruction
-            method (CONTHO) that effectively exploits contact information between humans and objects. 
-            There are two core designs in our system: 1) 3D-guided contact estimation and 2)
-            contact-based 3D human and object refinement. First, for
-            accurate human-object contact estimation, CONTHO initially reconstructs 3D humans and objects and utilizes them
-            as explicit 3D guidance for contact estimation. Second, to
-            refine the initial reconstructions of 3D human and object,
-            we propose a novel contact-based refinement Transformer
-            that effectively aggregates human features and object features based on the estimated human-object contact. 
-            The proposed contact-based refinement prevents the learning of
-            erroneous correlation between human and object, which enables accurate 3D reconstruction. 
-            As a result, our CONTHO achieves state-of-the-art performance in both human-object contact estimation and joint reconstruction of 3D human and object. 
-            The code is publicly available.
+            Hands are essential to human interaction, and understanding contact between hands and the world can promote comprehensive understanding of their function. 
+            Recently, there have been growing number of hand interaction datasets that cover interaction with object, other hand, scene, and body. 
+            Despite the significance of the task and increasing high-quality data, how to effectively learn dense hand contact estimation remains largely underexplored. 
+            There are two major challenges for learning dense hand contact estimation. 
+            First, there exists class imbalance issue from hand contact datasets where majority of samples are not in contact. 
+            Second, hand contact datasets contain spatial imbalance issue with most of hand contact exhibited in finger tips, resulting in challenges for generalization towards contacts in other hand regions. 
+            To tackle these issues, we present a framework that learns dense HAnd COntact estimation (HACO) from imbalanced data. 
+            To resolve the class imbalance issue, we introduce balanced contact sampling, which builds and samples from multiple sampling groups that fairly represent diverse contact statistics for both contact and non-contact samples. 
+            Moreover, to address the spatial imbalance issue, we propose vertex-level class-balanced (VCB) loss, which incorporates spatially varying contact distribution by separately reweighting loss contribution of each vertex based on its contact frequency across dataset. 
+            As a result, we effectively learn to predict dense hand contact estimation with large-scale hand contact data without suffering from class and spatial imbalance issue. 
+            The codes will be released.
           </p>
         </div>
       </div>
     </div>
     <!--/ Abstract. -->
-
-    <!-- Paper video. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Intro Video</h2>
-        <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/ETwnMLyqHrk"
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
-      </div>
-    </div>
-    <!--/ Paper video. -->
 
   </div>
 </section>
