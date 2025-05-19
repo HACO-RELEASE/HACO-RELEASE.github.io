@@ -158,55 +158,17 @@
         <h2 class="title is-3">Proposed Method</h2>
         <div class="content has-text-justified">
           <p>
-            Our method first reconstructs 3D human and object meshes. 
-            Then, the initial meshes are utilized to construct 3D vertex features. 
-            Subsequently, ContactFormer estimates human-object contact maps from the 3D vertex features. 
-            Lastly, CRFormer aggregates the 3D vertex features based on the estimated contact maps to provide refined human and object meshes. 
-            The green color indicates the estimated contacting regions.
+            Our method encodes input image as image tokens with a ViT backbone after patch embedding layers. 
+            Given the image tokens along with positional embeddings and a contact token, multiple layers of self-attention Transformer and cross-attention Transformer produce an output token. 
+            Lastly, the output token is further processed with a linear layer and added with contact initialization that passes sigmoid layer to output final hand contact prediction.
           </p>
         </div>
-        <img src="./static/images/contho_pipeline.png" height="250%">
+        <img src="./static/images/haco_overall_pipeline.png" height="250%">
       </div>
     </div>
     <!--/ Proposed method -->
 
-    <!-- Undesired HO -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Undesired Human-Object Correlation</h2>
-        <div class="content has-text-justified">
-          <p>
-            We conduct a sensitivity test, inspecting which region is sensitive in reconstruction, 
-            for Transformer baseline and our CRFormer. 
-            In the Transformer baseline, the object errors are sensitive to human regions not actually related to human-object
-            interaction, as a result of undesired correlation.
-            In our CRFormer, the object errors are mostly sensitive around regions containing human-object contact.
-          </p>
-        </div>
-        <img src="./static/images/undesired_ho_correlation.png" height="250%">
-      </div>
-    </div>
-    <!--/ Undesired HO -->
-
-    <!-- Results: 3D Recon -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Qualitative Results on 3D Reconstruction</h2>
-        <img src="./static/images/qualitative_recon.png" height="250%">
-      </div>
-    </div>
-    <!--/ Results: 3D Recon -->
-
-    <!-- Results: Contact -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Qualitative Results on Contact Estimation</h2>
-        <img src="./static/images/qualitative_contact.png" height="250%">
-      </div>
-    </div>
-    <!--/ Results: Contact -->
-
-
+  
     <!-- Concurrent Work. -->
     <div class="columns is-centered">
       <div class="column is-full-width">
